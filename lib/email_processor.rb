@@ -45,7 +45,7 @@ class EmailProcessor
 
     else # this is a new direct message
 
-      topic = Forum.first.topics.create(:name => subject, :user_id => @user.id, :private => true)
+      topic = Forum.first.topics.create(:name => subject.to_s, :user_id => @user.id, :private => true)
 
       #insert post to new topic
       post = topic.posts.create(:body => message, :user_id => @user.id, :kind => "first")
